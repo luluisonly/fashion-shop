@@ -1,0 +1,81 @@
+@import "base/_variables";
+@import "base/_reset";
+@import "base/_css3";
+@import "helps/_mixin";
+@import "components/_button";
+
+.page{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  width: 100%;
+  height: 100%;
+}
+.content{
+  width: 100%;
+  height: 100%;
+}
+
+/*login page*/
+
+.login{
+  width: 100%;
+  height: 100%;
+}
+.login .container img{
+  width: 100%;
+  height: auto;
+}
+.login .container .content{
+  position: relative;
+}
+
+.login .container .content .login-join{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.btn{
+  @extend %btn-basic;
+  @include btn-color();
+  @include btn-size();
+  font-size: px2rem(39px);
+}
+
+.btn-big{
+  @include btn-size(0,0,0,10px);
+  width: px2rem(696px);
+  height: px2rem(106px);
+  line-height: px2rem(106px);
+  @include btn-color(#4a4a4a,#fff)
+}
+
+.btn-bg-null{
+  @include btn-color(#fff,#fff,#fff);
+  background-color: transparent;
+  font-size: px2rem(34px);
+}
+
+.login .container .content .login-join .joinNow{
+  margin-bottom:px2rem(90px);
+}
+.login .container .content .step{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: px2rem(34px);
+
+}
+.login .container .content .step .know-more,.login .container .content .step .skip{
+  display: inline-block;
+  width: 50%;
+  background-color: red;
+}
+.login .container .content .step .know-more{
+
+}
+

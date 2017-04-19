@@ -1,0 +1,54 @@
+%btn-basic{
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  @include box-sizing;
+  border: 1px solid transparent;
+  user-select: none;
+}
+// btn 大小
+@mixin btn-size($padding:2em,$height:$barHeight,$width:50%,$radius:3px){
+  width: $width;
+  height: $height;
+  padding: 0 $padding;
+  line-height: $height - 2px;
+  @if $radius{
+    border-radius: $radius;
+  }
+}
+
+// btn 颜色
+@mixin  btn-color($colorText:#333,$colorBg:#666,$colorBorder:false){
+  color: nth($colorText,1);
+  background-color: nth($colorBg,1);
+  @if $colorBorder{
+    border-color: nth($colorBorder,1);
+  }
+
+  &:hover,
+  &:active{
+    @if length($colorText) == 2{
+      color: nth($colorText,2);
+    }
+
+    @if length($colorBg) == 2{
+      background-color: nth($colorBg,2);
+    }@else {
+      @if lightness($colorBg) > 40%{
+            background-color: darken($colorBg,5%);
+      }
+      @else {
+        background-color: lighten($colorBg,5%);
+      }
+    }
+
+    @if $colorBorder and length($colorBorder) == 2{
+      border-color: nth($colorBorder,2);
+    }
+  }
+
+}
+
+
+

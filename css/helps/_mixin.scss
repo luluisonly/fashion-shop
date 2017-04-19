@@ -1,0 +1,43 @@
+// px 转换成rem
+@function px2rem($px, $base-font-size: 75px) {
+  @if (unitless($px)) {
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+    @return px2rem($px + 0px); // That may fail.
+  } @else if (unit($px) == rem) {
+    @return $px;
+  }
+  @return ($px / $base-font-size) * 1rem;
+}
+
+// 黑色透明度
+@function black($opacity) {
+  @return rgba(0, 0, 0, $opacity)
+}
+
+// 白色透明的
+@function white($opacity) {
+  @return rgba(255, 255, 255, $opacity)
+}
+
+// clearfix
+@mixin clearfix($extend: true) {
+  @if $extend {
+    @extend %clearfix;
+  }
+  @else {
+    &::before,
+    &::after {
+      content: "";
+      display: table;
+    }
+    &::after {
+      clear: both;
+    }
+  }
+}
+
+%clearfix {
+  @include clearfix(false);
+}
+
+
